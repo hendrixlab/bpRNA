@@ -339,7 +339,7 @@ sub buildStructureMap {
 	}
     }
     if($regions{"I"}) {
-	my $iG = Graph::Undirected->new;
+	my $iG = Graph->new(undirected=>1);
 	for(my $i=0;$i<@{$regions{"I"}};$i++) {
 	    my($iStart,$iStop) = @{$regions{"I"}[$i]};
 	    for(my $j=$i+1;$j<@{$regions{"I"}};$j++) {
@@ -979,7 +979,7 @@ sub separateSegments {
     my($segments) = @_;
     my $warnings = "";
     my %knot;
-    my $G = Graph::Undirected->new;    
+    my $G = Graph->new(undirected=>1);    
     if(@{$segments} > 1) {
 	for(my $i=0;$i<@{$segments}-1;$i++) {
 	    my @segment1 = @{$segments->[$i]};
